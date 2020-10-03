@@ -23,8 +23,8 @@ Quickstart
 
    ::
 
-      git clone https://github.com/liamtoney/sonify.git
-      cd sonify
+      git clone https://github.com/donavin97/SeismicSonify.git
+      cd SeismicSonify
       pip install -e .
 
 3. Run
