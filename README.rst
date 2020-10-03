@@ -23,7 +23,7 @@ Quickstart
 
    ::
 
-      git clone https://github.com/donavin97/SeismicSonify.git
+      git clone https://github.com/Donavin97/SeismicSonify.git
       cd SeismicSonify
       pip install -e .
 
