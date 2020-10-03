@@ -1,0 +1,8 @@
+README.rst
+setup.py
+sonify/__init__.py
+sonify/sonify.py
+sonify.egg-info/PKG-INFO
+sonify.egg-info/SOURCES.txt
+sonify.egg-info/dependency_links.txt
+sonify.egg-info/top_level.txt

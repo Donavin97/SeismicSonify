@@ -1,0 +1,28 @@
+#!/bin/bash --login
+
+# Parses README to get code for example, runs code, and extracts a screenshot.
+
+FRAME=14  # Which frame number to extract
+
+conda activate sonify
+
+sed -n '/^.. ~BEGIN~$/,/^.. ~END~$/p' README.rst |  # (1) Extract code chunk
+sed -E '/(^\.\. .*$|^$)/d' |                        # (2) Remove reST comments
+sed -E 's/^[[:space:]]+//' |                        # (3) Completely un-indent
+sed '1i\
+import matplotlib as mpl; mpl.rcParams.update(mpl.rcParamsDefault)
+' | python                                          # (4) Add extra code & run
+
+filter="select=eq(n\,$(expr $FRAME - 1))"
+ffmpeg -v warning -i *.mp4 -filter:v $filter -frames:v 1 screenshot.png
+
+conda deactivate
+
+if [ -x "$(command -v mogrify)" ]; then
+  mogrify -resize 50% screenshot.png
+else
+  echo 'ImageMagick is not installed (use e.g. `brew install imagemagick` to install).'
+  echo 'No screenshot resizing will be performed.'
+fi
+
+rm -i *.mp4
