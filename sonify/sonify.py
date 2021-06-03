@@ -378,6 +378,8 @@ def _ffmpeg_combine(audio_filename, video_filename, output_filename):
         '320k',
         '-ac',
         '2',
+        '-filter_complex',
+        'compand=attacks=1:points=-120/-900|-90/-12|-60/-9|0/-7|20/-7:gain=5',
         output_filename,
     ]
     print('Combining video and audio using ffmpeg...')
