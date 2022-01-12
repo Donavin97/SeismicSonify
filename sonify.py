@@ -4,10 +4,10 @@ from obspy import UTCDateTime
 
 sonify(
     network='GT',
-    station='BOSA',
+    station='LBTB',
     channel='SHZ',
-    starttime=UTCDateTime(2021, 9, 13, 2, 30),
-    endtime=UTCDateTime(2021, 9, 13, 3, 30),
+    starttime=UTCDateTime(2022, 1, 11, 11, 30),
+    endtime=UTCDateTime(2022, 1, 11, 12, 30),
     freqmin=1,
     freqmax=23,
     speed_up_factor=200,
