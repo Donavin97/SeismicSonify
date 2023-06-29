@@ -24,8 +24,8 @@ AUDIO_SAMPLE_RATE = 44100  # [Hz]
 
 TAPER = 0.01
 
-RESOLUTION = (3840, 2160)  # [px] Output video resolution (width, height)
-DPI = 500
+RESOLUTION = (1080, 720)  # [px] Output video resolution (width, height)
+DPI = 300
 
 # For spectrograms
 REFERENCE_PRESSURE = 20e-6  # [Pa]
@@ -87,7 +87,7 @@ def sonify(
 
     pad = (endtime - starttime) * TAPER
 
-    client = Client('IRIS')
+    client = Client('http://localhost:8080')
 
     print('Retrieving data...')
     st = client.get_waveforms(
@@ -381,7 +381,7 @@ def _ffmpeg_combine(audio_filename, video_filename, output_filename):
         '-ac',
         '2',
         '-filter_complex',
-        'compand=attacks=1:points=-120/-900|-90/-12|-60/-9|0/-7|20/-7:gain=5',
+        'compand=attacks=0.1:points=-120/-20|-90/-12|-60/-9|0/-3|20/-3:gain=1',
         output_filename,
     ]
     print('Combining video and audio using ffmpeg...')
