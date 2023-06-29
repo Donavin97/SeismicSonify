@@ -11,9 +11,9 @@ creates animated spectrograms to accompany the audio. Data are pulled from the
 
 acknowledgements:
 ----------
-This work was originally authored by Liam Toni:
+This work was originally authored by Liam Toney:
 sea:
-https://github.com/liamtoni/sonify
+https://github.com/liamtoney/sonify
 
 Quickstart
 ----------
