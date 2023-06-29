@@ -9,6 +9,12 @@ creates animated spectrograms to accompany the audio. Data are pulled from the
 
 |screenshot|
 
+acknowledgements:
+----------
+This work was originally authored by Liam Toni:
+sea:
+https://github.com/liamtoni/sonify
+
 Quickstart
 ----------
 
